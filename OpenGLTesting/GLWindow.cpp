@@ -71,7 +71,7 @@ int GLWindow::Initialise()
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
 	// Create Window
-	mainWindow = glfwCreateWindow(width, heigth, "OpenGLTest", glfwGetPrimaryMonitor(), NULL);
+	mainWindow = glfwCreateWindow(width, heigth, "OpenGLTest", NULL, NULL);
 	if (!mainWindow) {
 		printf("GLFW Window creation failed!");
 		glfwTerminate();
