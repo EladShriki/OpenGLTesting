@@ -2,7 +2,6 @@
 
 Camera::Camera()
 {
-
 }
 
 Camera::Camera(glm::vec3 startPostion, glm::vec3 startUp, GLfloat startYaw, GLfloat startPitch, GLfloat startMoveSpeed, GLfloat startTurnSpeed)
@@ -15,6 +14,8 @@ Camera::Camera(glm::vec3 startPostion, glm::vec3 startUp, GLfloat startYaw, GLfl
 
 	moveSpeed = startMoveSpeed;
 	turnSpeed = startTurnSpeed;
+	
+	flashLightOn = false;
 
 	update();
 }
@@ -76,6 +77,26 @@ void Camera::KeyControl(bool* keys, GLfloat deltaTime)
 	{
 		position += right * velocity;
 	}
+	if (keys[GLFW_KEY_F])
+	{
+		this->flashLightOn = !this->flashLightOn;
+		keys[GLFW_KEY_F] = false;
+	}
+}
+
+glm::vec3 Camera::getCameraPosition()
+{
+	return this->position;
+}
+
+glm::vec3 Camera::getCameraDirection()
+{
+	return glm::normalize(front);
+}
+
+bool Camera::UseFlashLight()
+{
+	return this->flashLightOn;
 }
 
 Camera::~Camera()

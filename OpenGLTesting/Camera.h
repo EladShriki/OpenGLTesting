@@ -15,6 +15,10 @@ public:
 	void KeyControl(bool* keys, GLfloat deltaTime);
 	void MouseControl(GLfloat xChange, GLfloat yChange);
 
+	glm::vec3 getCameraPosition();
+	glm::vec3 getCameraDirection();
+	bool UseFlashLight();
+
 	glm::mat4 calculateViewMatrix();
 
 	~Camera();
@@ -31,6 +35,8 @@ private:
 
 	GLfloat moveSpeed;
 	GLfloat turnSpeed;
+
+	bool flashLightOn;
 
 	void update();
 };
